@@ -1,0 +1,88 @@
+
+# ==========================================
+# CAMPUS RADIO MANAGER - GIT IGNORE
+# ==========================================
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python build and distribution
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Type checking and linting
+.mypy_cache/
+.pyre/
+.ruff_cache/
+.dmypy.json
+dmypy.json
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Local databases
+instance/
+*.db
+*.sqlite
+*.sqlite3
+
+# Flask runtime files
+flask_session/
+
+# Application logs
+logs/*
+!logs/.gitkeep
+
+# Uploaded runtime files
+uploads/*
+!uploads/.gitkeep
+
+# Generated exports
+exports/*
+!exports/.gitkeep
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE settings
+.vscode/
+.idea/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Node.js dependencies (if used)
+node_modules/
+
+# ==========================================
+# END OF GIT IGNORE
+# ==========================================

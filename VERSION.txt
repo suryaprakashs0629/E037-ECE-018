@@ -1,0 +1,4 @@
+Campus Walkie-Talkie Channel and Time-Slot Allocation Engine
+Team E037
+Localhost application release 1.0
+Master specification basis: Version 2.0

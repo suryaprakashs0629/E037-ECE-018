@@ -1,0 +1,26 @@
+TEAM E037 - CAMPUS WALKIE-TALKIE CHANNEL AND TIME-SLOT ALLOCATION ENGINE
+LOCALHOST WEB APP - QUICK START
+
+1. Extract this ZIP into a normal folder, for example:
+   D:\Projects\Campus_Walkie_Talkie_Engine_E037
+
+2. Open the extracted folder in VS Code.
+
+3. For the first run, either double-click setup_windows.bat or open the VS Code PowerShell terminal and follow the Windows setup section in README.md.
+
+4. The quick-preview configuration uses a local SQLite database, so MySQL does not need to be configured just to open the website. The project also supports MySQL; instructions are in README.md and .env.example.
+
+5. During setup, create the administrator username and password when prompted.
+
+6. Start the website with run_windows.bat, or from an activated virtual environment run:
+   python run.py
+
+7. Open this address in a browser:
+   http://127.0.0.1:5000/
+
+8. Sign in with the administrator account you created. Use User accounts to add group-user accounts.
+
+To run the college's official sample pack independently of the website, run run_official_windows.bat or:
+   python scripts/run_official.py
+
+Read README.md for MySQL setup, exact command-file outputs, business rules, tests and troubleshooting.
