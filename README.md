@@ -72,7 +72,7 @@ Before you begin, make sure you have:
 
 ### Install Python
 
-1. Visit [https://www.python.org/downloads/](https://www.python.org/downloads/).
+1. Visit https://www.python.org/downloads/.
 2. Download and install Python 3.10, 3.11, or 3.12.
 3. If the installer offers **Add Python to PATH**, enable it.
 4. Complete the installation.
@@ -88,11 +88,7 @@ If `py` is not recognised, restart PowerShell. If it still fails, repair or rein
 
 ## 1.2 Download the project
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-**Option A — Download ZIP (easiest)**
+### Option A — Download ZIP (easiest)
 
 1. Open the [E037-ECE-018 GitHub repository](https://github.com/suryaprakashs0629/E037-ECE-018).
 2. Click the green **Code** button.
@@ -100,10 +96,7 @@ If `py` is not recognised, restart PowerShell. If it still fails, repair or rein
 4. When the download finishes, right-click the ZIP file and choose **Extract All**.
 5. Open the extracted project folder.
 
-</td>
-<td width="50%" valign="top">
-
-**Option B — Clone with Git**
+### Option B — Clone with Git
 
 If Git is installed, open PowerShell in the location where you want the project and run:
 
@@ -111,10 +104,6 @@ If Git is installed, open PowerShell in the location where you want the project 
 git clone [https://github.com/suryaprakashs0629/E037-ECE-018.git](https://github.com/suryaprakashs0629/E037-ECE-018.git)
 cd E037-ECE-018
 ```
-
-</td>
-</tr>
-</table>
 
 ---
 
@@ -202,22 +191,13 @@ You are now using the application locally.
 
 The pages available to you depend on your account role.
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
 ### 🛡️ Administrator
+
 An administrator can manage groups and users, review channel requests, approve or reject requests, run channel allocations, view schedules, inspect conflicts, and access reports.
 
-</td>
-<td width="50%" valign="top">
-
 ### 👥 Group user
-A group user can sign in with the account assigned to them, submit channel requests, check request status, and view relevant group schedules and notifications.
 
-</td>
-</tr>
-</table>
+A group user can sign in with the account assigned to them, submit channel requests, check request status, and view relevant group schedules and notifications.
 
 ### Suggested project demonstration
 
@@ -467,7 +447,7 @@ Run the setup script again and allow it to finish. If the issue continues, share
 | **Team ID** | E037 |
 | **Project title** | Campus Walkie-Talkie Channel and Time-Slot Allocation Engine |
 | **Team members** | • Surya Prakash S<br>• Sudarshan V |
-| **GitHub repository** | [https://github.com/suryaprakashs0629/E037-ECE-018](https://github.com/suryaprakashs0629/E037-ECE-018) |
+| **GitHub repository** | https://github.com/suryaprakashs0629/E037-ECE-018 |
 
 ---
 
