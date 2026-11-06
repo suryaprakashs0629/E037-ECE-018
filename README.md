@@ -1,190 +1,448 @@
-# Campus Walkie-Talkie Channel and Time-Slot Allocation Engine
+::: {align="center"}
+# 📡 Campus Walkie-Talkie Channel & Time-Slot Allocation Engine
 
-**Team ID:** E037
-**Team members:** Surya Prakash.S; Sudarshan V.
-**Release:** Localhost multi-page Flask application + official Team E037 evaluation runner
+### A browser-based campus communication scheduling and channel-allocation system
 
-This is a software simulation and management system. It does not transmit radio signals or control physical walkie-talkies.
+**Team E037 · Project ECE-018**
 
-## Product and visual direction
+[![Python](https://img.shields.io/badge/Python-3.10--3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Backend-Flask-black?logo=flask)](https://flask.palletsprojects.com/)
+[![Database](https://img.shields.io/badge/Database-SQLite%20%7C%20MySQL-4479A1?logo=mysql)](https://www.sqlite.org/)
 
-The website has separate administrator and group-user navigation, a persistent left sidebar, a light workspace, restrained navy/charcoal and blue colours, readable tables, compact operational cards and a 48-slot timetable. It deliberately avoids purple gradients, neon glows, oversized marketing hero sections, fake charts and placeholder controls.
+[**Open the GitHub
+Repository**](https://github.com/suryaprakashs0629/E037-ECE-018)
+:::
 
-## Functional areas
+------------------------------------------------------------------------
 
-### Administrator workspace
-- Operations dashboard with database-backed request, allocation, conflict and utilisation metrics.
-- Request management: filter, review, approve, reject with a reason, and perform permitted edits.
-- Allocation runs: select a date, run the engine, and view allocated, failed and pre-empted outcomes.
-- 48-slot allocation schedule and channel plan (1–16, with channel 16 reserved).
-- Group directory and user account administration.
-- Conflict log, reports, official CSV export, command-file lab, notifications and audit trail.
+## Welcome
 
-### Group-user workspace
-- Separate group-user dashboard and navigation.
-- Submit and monitor requests for the assigned group only.
-- Edit own group's pending requests.
-- View own group's allocations/schedule and notifications.
-- No access to other groups' request data or administrator actions.
+This README is a step-by-step guide for anyone opening this project for
+the first time. Follow the instructions in order to install the
+application on a Windows computer and use it through a local web
+browser.
 
-### Official Team E037 command engine
-- Reads the original `commands.txt` from top to bottom and retains physical line numbers.
-- Loads the official `channels.csv` and `groups.csv` files.
-- Supports `LOAD_CHANNELS`, `LOAD_GROUPS`, `REQUEST`, `ALLOCATE`, `PRINT_TABLE`, `PRINT_UTILISATION` and `PRINT_CONFLICTS`.
-- Uses inclusive slot numbers 1–48 (`duration = end_slot - start_slot + 1`).
-- Applies category priority and FIFO for the initial `ALLOCATE` command.
-- Merges overlapping same-group requests before initial allocation, using the union of slots and maximum simultaneous channel demand.
-- Enforces channel 16 reservation, same-channel exclusivity, cross-group adjacency, exact fixed-channel lists, continuity and all-or-nothing allocation.
-- Allows late-arrival pre-emption only for `REQUEST` commands after that date's `ALLOCATE`; a selected victim is removed as a whole and is not retried.
-- Writes the exact official evaluation files and column order: `allocation_table.csv`, `utilisation.csv` and `conflict_log.csv`.
+> **Quick start:** Download the project → install Python → run
+> `setup_windows.bat` once → run `run_windows.bat` → open
+> `http://127.0.0.1:5000` in your browser.
 
-## Radio and scheduling rules
+# 1. Run the Project Locally
 
-| Item | Rule |
-|---|---|
-| Total channels | 16 |
-| Allocatable channels | 1–15 |
-| Reserved channel | 16; never allocated |
-| Starting frequency | 446.00625 MHz |
-| Spacing | 12.5 kHz |
-| Slots per day | 48 |
-| Slot duration | 30 minutes |
-| Slot numbering | 1–48, inclusive |
-| Maximum request duration | 8 consecutive slots |
-| Maximum channels per request | 3 |
-| Priority | SECURITY → MEDICAL → EVENTS → MAINTENANCE |
-| Same-priority order | FIFO |
+## 1.1 Requirements
 
-Different groups at the same slot cannot use the same or adjacent channel numbers. The same group may use adjacent channels. The official command interface is the single-schedule format defined by the E037 README; the website does not invent a site column that is absent from that contract.
+Before you begin, make sure you have:
 
-## Requirements
+  Requirement        Details
+  ------------------ ---------------------------------------------------
+  Operating system   Windows 10 or Windows 11
+  Python             Python 3.10--3.12; 64-bit recommended
+  Browser            Chrome, Edge, Firefox, or another modern browser
+  Internet           Required for the first-time package installation
+  Git                Optional; only needed if you clone the repository
 
-- Windows 10/11
-- Python 3.10–3.12 (project baseline)
-- MySQL Community Server
-- VS Code or another Python editor
+**You do not need to install MySQL for the default local setup.** The
+application uses SQLite unless you configure another database.
 
-Python 3.14 is outside the version range selected in the project specification. Use Python 3.12 for the documented setup.
+### Install Python
 
-## Windows setup — MySQL configuration
+1.  Visit <https://www.python.org/downloads/>.
+2.  Download and install Python 3.10, 3.11, or 3.12.
+3.  If the installer offers **Add Python to PATH**, enable it.
+4.  Complete the installation.
+5.  Open PowerShell and check Python:
 
-### 1. Extract and open the project
-
-Extract the ZIP to a path such as `D:\Projects\Campus_Walkie_Talkie_E037` and open that folder in VS Code. Use **Terminal → New Terminal** and select PowerShell.
-
-### 2. Create the Python environment and install packages
-
-Run the setup helper:
-
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\setup_windows.ps1
+``` powershell
+py --version
 ```
 
-The script creates `.venv`, installs `requirements.txt`, and copies `.env.example` to `.env` if it does not already exist. If Python 3.12 is missing, install Python 3.12 x64 and run the script again.
+If `py` is not recognised, restart PowerShell. If it still fails, repair
+or reinstall Python and enable the Python Launcher/PATH options.
 
-### 3. Create the MySQL database and local application user
+## 1.2 Download the project
 
-Start your MySQL Community Server service. In MySQL Workbench, connect to your local server and execute the following SQL. Choose your own strong password:
+**Option A --- Download ZIP (easiest)**
 
-```sql
-CREATE DATABASE campus_radio_manager
-  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+1.  Open the [E037-ECE-018 GitHub
+    repository](https://github.com/suryaprakashs0629/E037-ECE-018).
+2.  Click the green **Code** button.
+3.  Select **Download ZIP**.
+4.  When the download finishes, right-click the ZIP file and choose
+    **Extract All**.
+5.  Open the extracted project folder.
 
-CREATE USER 'campus_app'@'127.0.0.1' IDENTIFIED BY 'CHOOSE_A_STRONG_PASSWORD';
-GRANT ALL PRIVILEGES ON campus_radio_manager.* TO 'campus_app'@'127.0.0.1';
-FLUSH PRIVILEGES;
+**Option B --- Clone with Git**
+
+If Git is installed, open PowerShell in the location where you want the
+project and run:
+
+``` powershell
+git clone https://github.com/suryaprakashs0629/E037-ECE-018.git
+cd E037-ECE-018
 ```
 
-### 4. Configure `.env`
+## 1.3 Open the correct folder
 
-Open `.env` in VS Code. Set `DATABASE_URL` to your database connection and replace `SECRET_KEY` with a generated secret. URL-encode special characters in the database password if necessary.
+Open the main project folder. You should be able to see these files:
 
-```ini
-DATABASE_URL=mysql+pymysql://campus_app:YOUR_PASSWORD@127.0.0.1:3306/campus_radio_manager?charset=utf8mb4
-SECRET_KEY=paste-a-long-random-value-here
-FLASK_DEBUG=1
+``` text
+E037-ECE-018/
+├── app/
+├── docs/
+├── migrations/
+├── sample_data/
+├── scripts/
+├── tests/
+├── config.py
+├── requirements.txt
+├── run.py
+├── setup_windows.bat
+└── run_windows.bat
 ```
 
-Generate a secret with:
+**Important:** Run the `.bat` files from the folder that contains them.
+If you cannot see `setup_windows.bat`, you have not opened the correct
+folder yet.
 
-```powershell
-.\.venv\Scripts\python.exe -c "import secrets; print(secrets.token_hex(32))"
+## 1.4 First-time setup (run once)
+
+1.  Open the main project folder in File Explorer.
+2.  Find **`setup_windows.bat`**.
+3.  Double-click it.
+4.  A terminal window will open. Allow the setup process to run.
+5.  Follow any prompts shown in the terminal. If it asks you to create
+    the first administrator account, enter the requested details.
+6.  Wait until the script reports that setup has completed.
+7.  If an error appears, stop here and use the
+    [Troubleshooting](#9-troubleshooting) section.
+
+The setup script prepares the local Python environment, installs the
+required packages, and initialises the local application database.
+
+> You normally need to run this setup only once for each local
+> installation. Keep your administrator credentials safe. Never upload
+> your `.env` file, password, or local database to GitHub.
+
+## 1.5 Start the application
+
+Whenever you want to use the website:
+
+1.  Open the main project folder.
+2.  Double-click **`run_windows.bat`**.
+3.  Keep the terminal window open.
+4.  Wait until Flask displays a message showing that the server is
+    running. The address should look like:
+
+``` text
+http://127.0.0.1:5000
 ```
 
-Do not share `.env` or commit it to Git.
+## 1.6 Open the website in your browser
 
-### 5. Initialise the database and load the official master data
+1.  Open Chrome, Edge, Firefox, or another browser.
 
-```powershell
-.\.venv\Scripts\python.exe scripts\init_db.py
+2.  Enter this address:
+
+    **http://127.0.0.1:5000**
+
+3.  The project login page should appear.
+
+4.  Sign in using the administrator credentials created during setup.
+
+You are now using the application locally.
+
+> **Keep the terminal open while using the website.** Closing it stops
+> the local server. The address `127.0.0.1` refers to your own computer;
+> it is not a public website URL.
+
+## 1.7 Stop the application
+
+1.  Return to the terminal window running Flask.
+2.  Press **Ctrl + C**.
+3.  Wait for the server to stop.
+4.  You can then close the terminal.
+
+------------------------------------------------------------------------
+
+# 2. First-Time User Guide
+
+The pages available to you depend on your account role.
+
+### Administrator
+
+An administrator can manage groups and users, review channel requests,
+approve or reject requests, run channel allocations, view schedules,
+inspect conflicts, and access reports.
+
+### Group user
+
+A group user can sign in with the account assigned to them, submit
+channel requests, check request status, and view relevant group
+schedules and notifications.
+
+### Suggested project demonstration
+
+For a short walkthrough:
+
+1.  Sign in as administrator.
+2.  Open the dashboard and review its summary.
+3.  Open the group and user management pages.
+4.  Review the available channel requests.
+5.  Approve an eligible request if required by the workflow.
+6.  Run the allocation process.
+7.  Open the allocation schedule.
+8.  Inspect the conflict log and reports.
+
+Use the supplied sample data and follow the application's validation
+messages. A request should not be assumed to be allocatable if it
+violates a scheduling rule.
+
+------------------------------------------------------------------------
+
+# 3. Project Overview
+
+The Campus Walkie-Talkie Channel and Time-Slot Allocation Engine is a
+software application that simulates communication-channel scheduling
+among campus departments or user groups.
+
+It manages allocation requests, applies scheduling constraints, detects
+conflicts, and presents allocation results through a browser-based
+interface.
+
+**This project is a software simulation. It does not transmit radio
+signals, communicate with physical walkie-talkies, or configure real
+radio hardware.**
+
+## Main features
+
+-   Administrator and group-user access.
+-   Group and user management.
+-   Channel allocation request submission and review.
+-   Automatic channel and time-slot allocation.
+-   Daily allocation schedule.
+-   Conflict logging.
+-   Utilisation and reporting views.
+-   CSV output generation.
+-   Official Team E037 command-file runner.
+-   Automated tests for core allocation behaviour.
+
+## Technology stack
+
+  Layer                    Technology
+  ------------------------ -----------------------
+  Programming language     Python
+  Backend                  Flask
+  Frontend                 HTML, CSS, JavaScript
+  ORM                      Flask-SQLAlchemy
+  Default local database   SQLite
+  Optional database        MySQL
+  Automated tests          Pytest
+
+------------------------------------------------------------------------
+
+# 4. Allocation Rules
+
+  Parameter                               Rule
+  --------------------------------------- -------------------------------------------
+  Total channel numbers                   16
+  Allocatable channels                    1--15
+  Reserved channel                        16
+  Starting frequency                      446.00625 MHz
+  Channel spacing                         12.5 kHz
+  Slots per day                           48
+  Duration per slot                       30 minutes
+  Maximum consecutive slots per request   8
+  Maximum channels per group per slot     3
+  Priority order                          SECURITY → MEDICAL → EVENTS → MAINTENANCE
+
+Other important rules:
+
+-   Channel 16 is reserved and must not be allocated.
+-   Different groups must not receive the same or adjacent channel
+    numbers in the same time slot.
+-   Requests are processed according to priority and the applicable
+    ordering rules.
+-   Allocations must satisfy the all-or-nothing requirement.
+-   Emergency handling is subject to authorisation and justification
+    rules.
+
+See the files in `docs/` for the project's detailed design and
+implementation decisions.
+
+------------------------------------------------------------------------
+
+# 5. Run the Official Command-Line Evaluation
+
+The repository includes a command-line runner and sample input files for
+Team E037.
+
+1.  Complete the initial setup in Section 1.
+2.  Open the main project folder.
+3.  Double-click **`run_official_windows.bat`**.
+4.  Wait for the command-line run to finish.
+5.  Inspect the generated files in:
+
+``` text
+exports/official_run/
 ```
 
-This creates the application tables and loads the 16 official channels and 15 official groups. For a migration-managed setup, see `docs/MIGRATIONS.md` instead; do not initialise the same empty database using both methods.
+The expected output filenames are:
 
-### 6. Create the first administrator
+-   `allocation_table.csv`
+-   `utilisation.csv`
+-   `conflict_log.csv`
 
-```powershell
-.\.venv\Scripts\python.exe scripts\create_admin.py
+The official sample inputs are stored in:
+
+``` text
+sample_data/team_e037/
 ```
 
-Enter the administrator username, full name and password when prompted. The password is hashed and is not written to source files. After signing in, use **User accounts** to create group-user accounts for the registered groups.
+**Do not overwrite or edit the original supplied sample files during an
+evaluation.** Make a separate copy if you want to experiment with
+modified inputs.
 
-### 7. Start the website
+------------------------------------------------------------------------
 
-```powershell
-.\.venv\Scripts\python.exe run.py
-```
+# 6. Run the Automated Tests
 
-Open `http://127.0.0.1:5000/` and sign in using the administrator account you created.
+After setup, open PowerShell in the main project folder and run:
 
-Health checks:
-- `http://127.0.0.1:5000/health`
-- `http://127.0.0.1:5000/health/db`
-
-`start_app.bat` is also included; it starts the app using the already-created `.venv`.
-
-## Run the official sample independently of the website
-
-The command-line runner does not require Flask login or MySQL. It exercises the same framework-independent allocation engine used by the website:
-
-```powershell
-.\.venv\Scripts\python.exe scripts\run_official.py
-```
-
-Default output folder: `exports/official_run/`, containing the three official CSV files. To process another copy of the official files:
-
-```powershell
-.\.venv\Scripts\python.exe scripts\run_official.py --commands "D:\path\commands.txt" --channels "D:\path\channels.csv" --groups "D:\path\groups.csv" --output "D:\path\output"
-```
-
-Do not edit the bundled official sample files in place. The web Command File Lab copies them into a unique batch directory before running.
-
-## Tests and verification
-
-Run:
-
-```powershell
+``` powershell
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-The tests cover official sample-pack processing, exact output headers, planted scenarios, inclusive duration, channel-16 rejection, all-or-nothing allocation, utilisation, deterministic outputs, duplicate request IDs and invalid dates.
+Pytest will execute the tests in the `tests/` directory and display a
+summary.
 
-The official README says expected output files are not supplied with the sample pack. The included tests assert the planted cases and file contract; they do not claim a field-for-field comparison to an unavailable college expected-output file.
+If pytest is unavailable, rerun `setup_windows.bat` and check that setup
+completes successfully.
 
-## Scope notes
+------------------------------------------------------------------------
 
-- The official command format has no site field. The evaluator therefore follows the provided single-schedule contract and does not invent site IDs or output columns.
-- Earlier website discussion considered two sites, but the official E037 README/command schema does not define a site column. A site-aware website extension should only be added after the team/college confirms how sites are represented.
-- Emergency submission is a website-only extension controlled by an admin account permission. It requires justification and receives SECURITY-level priority. It never permits channel 16. The official `REQUEST` command syntax is unchanged.
-- The Flask development server is for local demonstration only, not production hosting.
+# 7. Project Structure
 
-## Verification limitation
+``` text
+E037-ECE-018/
+│
+├── app/                 # Flask application, routes, services and templates
+├── docs/                # Architecture, design and project documentation
+├── migrations/          # Database migration files
+├── sample_data/         # Official Team E037 sample inputs
+├── scripts/             # Setup, database and command-line scripts
+├── tests/               # Automated tests
+├── exports/             # Generated evaluation outputs
+├── logs/                # Runtime logs
+├── uploads/              # Runtime upload directory
+│
+├── .env.example         # Example environment configuration
+├── .gitignore           # Files excluded from Git
+├── config.py            # Application configuration
+├── requirements.txt     # Python dependencies
+├── requirements-dev.txt # Development/test dependencies
+├── run.py               # Application entry point
+├── setup_windows.bat    # First-time Windows setup
+├── run_windows.bat      # Starts the local web application
+├── run_official_windows.bat
+│                        # Runs official command-line evaluation
+├── START_HERE.txt       # Short starting guide
+└── VERSION.txt          # Project version
+```
 
-The build environment used to create this ZIP did not have Flask/Flask-SQLAlchemy/Flask-Login/Flask-WTF/Flask-Migrate/PyMySQL installed, and it could not reach the package index to install them. The standalone allocator, test suite, Python syntax and Jinja template parsing were verified; a live Flask + MySQL browser session was not run in that environment. Complete the Windows setup above and check `/health` and `/health/db` before your demo.
+The `.venv/`, `.env`, and local database are created or used on the
+local computer and should not be committed to the public repository.
 
-## Team
+------------------------------------------------------------------------
 
-**Team ID:** E037
-**Surya Prakash.S**
-**Sudarshan V**
+# 8. Database Information
+
+The default local setup uses SQLite. This avoids the need to install and
+run a separate database server for a basic demonstration.
+
+The project also includes MySQL support for environments where a MySQL
+database is configured.
+
+For a normal first-time evaluation, use the default setup. Do not change
+the database configuration unless instructed by the project team.
+
+**Do not delete the local database while the application is in use.** It
+may contain administrator accounts, users, requests, and allocation
+records.
+
+------------------------------------------------------------------------
+
+# 9. Troubleshooting
+
+### Python or `py` is not recognised
+
+-   Install Python 3.10--3.12 from
+    [python.org](https://www.python.org/downloads/).
+-   Enable the Python Launcher and PATH options if offered.
+-   Close and reopen PowerShell.
+-   Check again using `py --version`.
+
+### The setup window closes or reports an error
+
+-   Run `setup_windows.bat` from the main project folder.
+-   Check that Python is installed.
+-   Check your internet connection.
+-   Read the error shown in the terminal.
+
+If the problem continues, copy the complete error message before asking
+for help.
+
+### The browser says the site cannot be reached
+
+-   Confirm that `run_windows.bat` is running.
+-   Check that the terminal displays the local Flask address.
+-   Keep the terminal open.
+-   Enter `http://127.0.0.1:5000` exactly.
+-   If port 5000 is already in use, stop the other application using it
+    or contact the project team.
+
+### Administrator login does not work
+
+-   Use the credentials created during initial setup.
+-   Check that Caps Lock is off.
+-   Do not delete the database to try to fix a login problem.
+-   Contact the project team if the account or database needs recovery.
+
+### Python package or import errors appear
+
+Run the setup script again and allow it to finish. If the issue
+continues, share the complete terminal error with the project team.
+
+------------------------------------------------------------------------
+
+# 10. Security and Usage Notes
+
+-   Never publish passwords, secret keys, `.env` files, or private
+    database files.
+-   Do not share administrator credentials.
+-   The Flask development server is intended for local development and
+    demonstration, not production deployment.
+-   The local browser address is intended for use on the computer
+    running the application.
+-   Use authorised accounts and the supplied sample data.
+-   Back up the local database before changing or deleting it.
+
+------------------------------------------------------------------------
+
+# 11. Team Information
+
+**Project code:** ECE-018\
+**Team ID:** E037\
+**Project title:** Campus Walkie-Talkie Channel and Time-Slot Allocation
+Engine
+
+**Team members** - Surya Prakash S - Sudarshan V
+
+**GitHub repository:**\
+https://github.com/suryaprakashs0629/E037-ECE-018
+
+------------------------------------------------------------------------
+
+::: {align="center"}
+**Team E037 · ECE-018**
+
+*Campus Walkie-Talkie Channel and Time-Slot Allocation Engine*
+:::
