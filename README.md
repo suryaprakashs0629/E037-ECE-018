@@ -101,7 +101,7 @@ If `py` is not recognised, restart PowerShell. If it still fails, repair or rein
 If Git is installed, open PowerShell in the location where you want the project and run:
 
 ```powershell
-git clone [https://github.com/suryaprakashs0629/E037-ECE-018.git](https://github.com/suryaprakashs0629/E037-ECE-018.git)
+git clone https://github.com/suryaprakashs0629/E037-ECE-018.git
 cd E037-ECE-018
 ```
 
@@ -458,3 +458,4 @@ Run the setup script again and allow it to finish. If the issue continues, share
 *Campus Walkie-Talkie Channel and Time-Slot Allocation Engine*
 
 </div>
+\n---\n\n# Project documentation\n\nThe `docs/` directory contains the system design, engineering decisions, architecture notes and verification information.\n\n| Document | Purpose |\n| :--- | :--- |\n| [Design Document](docs/DESIGN_DOCUMENT.pdf) | System scope, architecture, data model and allocation workflow. |\n| [Decision Log](docs/DECISION_LOG.md) | Important engineering decisions and their rationale. |\n| [Architecture](docs/ARCHITECTURE.md) | Application components and data flow. |\n| [Verification Report](docs/VERIFICATION_REPORT.md) | Recorded checks and known verification limitations. |\n\n
