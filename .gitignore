@@ -48,17 +48,10 @@ instance/
 # Flask runtime files
 flask_session/
 
-# Application logs
-logs/*
-!logs/.gitkeep
-
-# Uploaded runtime files
-uploads/*
-!uploads/.gitkeep
-
-# Generated exports
-exports/*
-!exports/.gitkeep
+# Runtime-only directories and generated files
+logs/
+uploads/
+exports/
 
 # Temporary files
 *.tmp

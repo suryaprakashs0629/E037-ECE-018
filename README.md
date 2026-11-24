@@ -101,7 +101,7 @@ If `py` is not recognised, restart PowerShell. If it still fails, repair or rein
 If Git is installed, open PowerShell in the location where you want the project and run:
 
 ```powershell
-git clone [https://github.com/suryaprakashs0629/E037-ECE-018.git](https://github.com/suryaprakashs0629/E037-ECE-018.git)
+git clone https://github.com/suryaprakashs0629/E037-ECE-018.git
 cd E037-ECE-018
 ```
 
@@ -158,7 +158,7 @@ Whenever you want to use the website:
 4. Wait until Flask displays a message showing that the server is running. The address should look like:
 
 ```text
-[http://127.0.0.1:5000](http://127.0.0.1:5000)
+http://127.0.0.1:5000
 ```
 
 ---
@@ -329,30 +329,26 @@ If pytest is unavailable, rerun `setup_windows.bat` and check that setup complet
 ```text
 E037-ECE-018/
 │
-├── app/                     # Flask application, routes, services and templates
-├── docs/                    # Architecture, design and project documentation
-├── migrations/              # Database migration files
-├── sample_data/             # Official Team E037 sample inputs
-├── scripts/                 # Setup, database and command-line scripts
-├── tests/                   # Automated tests
-├── exports/                 # Generated evaluation outputs
-├── logs/                    # Runtime logs
-├── uploads/                 # Runtime upload directory
+├── app/                         # Flask app, routes, services, templates and assets
+├── docs/                        # Design, decisions, architecture and project specs
+├── migrations/                  # Database migration guidance and revisions
+├── sample_data/team_e037/       # Official channels, groups and command input files
+├── scripts/                     # Database setup, admin creation and evaluator runner
+├── tests/                       # Automated allocation and command-runner tests
 │
-├── .env.example             # Example environment configuration
-├── .gitignore               # Files excluded from Git
-├── config.py                # Application configuration
-├── requirements.txt         # Python dependencies
-├── requirements-dev.txt     # Development/test dependencies
-├── run.py                   # Application entry point
-├── setup_windows.bat        # First-time Windows setup
-├── run_windows.bat          # Starts the local web application
-├── run_official_windows.bat # Runs official command-line evaluation
-├── START_HERE.txt           # Short starting guide
-└── VERSION.txt              # Project version
+├── .env.example                 # Safe example environment configuration
+├── .gitignore                   # Excludes secrets, local databases and generated files
+├── config.py                    # Flask and database configuration
+├── requirements.txt             # Pinned application/test dependencies
+├── requirements-dev.txt         # Development dependency entry point
+├── run.py                       # Flask application entry point
+├── setup_windows.bat            # First-time Windows setup
+├── run_windows.bat              # Starts the local website
+├── run_official_windows.bat     # Runs the official sample-pack evaluator
+└── VERSION.txt                  # Project release information
 ```
 
-The `.venv/`, `.env`, and local database are created or used on the local computer and should not be committed to the public repository.
+Runtime folders such as `instance/`, `uploads/`, `exports/` and `logs/` are created or used locally and are excluded from Git. Do not commit `.env`, virtual environments, local databases, uploaded files or generated evaluation output.
 
 ---
 
@@ -439,7 +435,23 @@ Run the setup script again and allow it to finish. If the issue continues, share
 
 ---
 
-# 11. Team Information
+# 11. Project Documents and Demo
+
+The `docs/` directory contains the engineering and submission documents.
+
+| Required item | Repository location | Status |
+| :--- | :--- | :--- |
+| README and run instructions | `README.md` | Included |
+| System Design Document (PDF) | [`docs/DESIGN_DOCUMENT.pdf`](docs/DESIGN_DOCUMENT.pdf) | Included |
+| Full automated test suite | [`tests/`](tests/) | Included |
+| Engineering Decision Log | [`docs/DECISION_LOG.md`](docs/DECISION_LOG.md) | Included |
+| 5-minute demonstration video | Link below | To be added when the recording is ready |
+
+### Project demonstration video
+
+**Coming soon.** The 5-minute demonstration link will be added here before final submission.
+
+# 12. Team Information
 
 | Field | Details |
 | :--- | :--- |
