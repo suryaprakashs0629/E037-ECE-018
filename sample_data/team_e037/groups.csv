@@ -1,0 +1,16 @@
+group_id,group_name,category,priority_rank,contact_name,contact_mobile
+GRP-01,Main Gate Security,SECURITY,1,Harish Patil,6399869879
+GRP-02,Hostel Block Security,SECURITY,1,Pooja Kumar,6141707536
+GRP-03,Campus Night Patrol,SECURITY,1,Swati Pillai,9815188447
+GRP-04,Security Control Room,SECURITY,1,Deepak Verma,8055761698
+GRP-05,Health Centre,MEDICAL,2,Tejaswini Rao,9897684697
+GRP-06,Ambulance Team,MEDICAL,2,Anil Shetty,7081967273
+GRP-07,First Aid Volunteers,MEDICAL,2,Karthik Desai,9848648876
+GRP-08,Cultural Fest Crew,EVENTS,3,Meena Iyer,8002978753
+GRP-09,Sports Meet Team,EVENTS,3,Pallavi Kulkarni,9876804571
+GRP-10,Convocation Desk,EVENTS,3,Pallavi Patil,8726714751
+GRP-11,Stage and Sound,EVENTS,3,Rohit Joshi,7701079819
+GRP-12,Admissions Help Desk,EVENTS,3,Naveen Rao,6845205997
+GRP-13,Electrical Maintenance,MAINTENANCE,4,Sandeep Shetty,9929841622
+GRP-14,Housekeeping,MAINTENANCE,4,Gayathri Joshi,9283601610
+GRP-15,Civil Works,MAINTENANCE,4,Madhuri Pillai,6087547517

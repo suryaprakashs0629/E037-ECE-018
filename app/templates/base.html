@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Overview{% endblock %} · Campus Walkie-Talkie Engine</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+  <script defer src="{{ url_for('static', filename='js/app.js') }}"></script>
+  {% block head %}{% endblock %}
+</head>
+<body>
+{% if current_user.is_authenticated %}
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="{{ url_for('main.dashboard') }}">
+      <span class="brand-mark">E</span><span class="brand-copy"><strong>RADIO CONTROL</strong><small>TEAM E037 · LOCAL SYSTEM</small></span>
+    </a>
+    <div class="sidebar-label">WORKSPACE</div>
+    <nav class="side-nav">
+      <a class="nav-link {% if request.endpoint=='main.dashboard' %}active{% endif %}" href="{{ url_for('main.dashboard') }}"><span class="nav-icon">▦</span>Overview</a>
+      {% if current_user.is_admin %}
+      <div class="sidebar-label nav-section-label">OPERATIONS</div>
+      <a class="nav-link {% if request.endpoint=='main.request_list' %}active{% endif %}" href="{{ url_for('main.request_list') }}"><span class="nav-icon">≡</span>Request management</a>
+      <a class="nav-link {% if request.endpoint=='main.allocation_runs' %}active{% endif %}" href="{{ url_for('main.allocation_runs') }}"><span class="nav-icon">⇄</span>Allocation runs</a>
+      <a class="nav-link {% if request.endpoint=='main.schedule' %}active{% endif %}" href="{{ url_for('main.schedule') }}"><span class="nav-icon">▤</span>Allocation schedule</a>
+      <a class="nav-link {% if request.endpoint=='main.channels' %}active{% endif %}" href="{{ url_for('main.channels') }}"><span class="nav-icon">◉</span>Channel plan</a>
+      <div class="sidebar-label nav-section-label">DIRECTORY</div>
+      <a class="nav-link {% if request.endpoint=='main.groups' %}active{% endif %}" href="{{ url_for('main.groups') }}"><span class="nav-icon">◇</span>Groups</a>
+      <a class="nav-link {% if request.endpoint=='main.users' %}active{% endif %}" href="{{ url_for('main.users') }}"><span class="nav-icon">♙</span>User accounts</a>
+      <div class="sidebar-label nav-section-label">OVERSIGHT</div>
+      <a class="nav-link {% if request.endpoint=='main.conflicts' %}active{% endif %}" href="{{ url_for('main.conflicts') }}"><span class="nav-icon">!</span>Conflict log</a>
+      <a class="nav-link {% if request.endpoint=='main.reports' %}active{% endif %}" href="{{ url_for('main.reports') }}"><span class="nav-icon">▥</span>Reports</a>
+      <a class="nav-link {% if request.endpoint in ['main.command_center','main.command_result'] %}active{% endif %}" href="{{ url_for('main.command_center') }}"><span class="nav-icon">⇧</span>Command file lab</a>
+      <a class="nav-link {% if request.endpoint=='main.audit_logs' %}active{% endif %}" href="{{ url_for('main.audit_logs') }}"><span class="nav-icon">◷</span>Audit trail</a>
+      {% else %}
+      <div class="sidebar-label nav-section-label">MY RADIO ACCESS</div>
+      <a class="nav-link {% if request.endpoint=='main.request_list' %}active{% endif %}" href="{{ url_for('main.request_list') }}"><span class="nav-icon">≡</span>My requests</a>
+      <a class="nav-link {% if request.endpoint=='main.request_new' %}active{% endif %}" href="{{ url_for('main.request_new') }}"><span class="nav-icon">＋</span>Submit request</a>
+      <a class="nav-link {% if request.endpoint=='main.schedule' %}active{% endif %}" href="{{ url_for('main.schedule') }}"><span class="nav-icon">▤</span>My schedule</a>
+      {% endif %}
+      <div class="sidebar-label nav-section-label">PERSONAL</div>
+      <a class="nav-link {% if request.endpoint=='main.notifications' %}active{% endif %}" href="{{ url_for('main.notifications') }}"><span class="nav-icon">◌</span>Notifications</a>
+      <a class="nav-link {% if request.endpoint=='main.profile' %}active{% endif %}" href="{{ url_for('main.profile') }}"><span class="nav-icon">⚙</span>Account settings</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="system-status"><span class="status-dot"></span><span><strong>Local service</strong><small>Session active</small></span></div>
+      <div class="team-tag">ECE-018 <span>·</span> E037</div>
+    </div>
+  </aside>
+  <main class="main-panel">
+    <header class="topbar">
+      <button class="mobile-menu" type="button" data-sidebar-toggle aria-label="Toggle navigation">☰</button>
+      <div class="topbar-title"><span class="eyebrow">CAMPUS RADIO OPERATIONS</span><strong>{% block page_heading %}Overview{% endblock %}</strong></div>
+      <div class="topbar-right"><span class="local-chip"><i></i> LOCALHOST</span><a class="user-chip" href="{{ url_for('main.profile') }}"><span class="avatar">{{ current_user.full_name[:1]|upper }}</span><span><strong>{{ current_user.full_name }}</strong><small>{{ 'Administrator' if current_user.is_admin else (current_user.group.category if current_user.group else 'Group user') }}</small></span></a><form method="post" action="{{ url_for('main.logout') }}" class="logout-form"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="logout-button" title="Sign out">↗</button></form></div>
+    </header>
+    <section class="page-content">
+      {% with messages=get_flashed_messages(with_categories=true) %}{% if messages %}<div class="flash-stack">{% for category,message in messages %}<div class="flash flash-{{ category }}"><span>{{ message }}</span><button type="button" data-dismiss>×</button></div>{% endfor %}</div>{% endif %}{% endwith %}
+      {% block content %}{% endblock %}
+    </section>
+    <footer class="page-footer"><span>Campus Walkie-Talkie Channel and Time-Slot Allocation Engine</span><span>Team E037 · Local development build</span></footer>
+  </main>
+</div>
+{% else %}
+<div class="auth-shell">{% with messages=get_flashed_messages(with_categories=true) %}{% if messages %}<div class="auth-flashes">{% for category,message in messages %}<div class="flash flash-{{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}{% endwith %}{% block auth_content %}{% endblock %}</div>
+{% endif %}
+</body></html>
