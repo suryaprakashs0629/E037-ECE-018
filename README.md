@@ -470,3 +470,22 @@ The `docs/` directory contains the engineering and submission documents.
 *Campus Walkie-Talkie Channel and Time-Slot Allocation Engine*
 
 </div>
+
+---
+
+# Project Submission Documents
+
+The following documents are included in the `docs/` directory:
+
+| Deliverable | File |
+|---|---|
+| System Design Document | [`docs/DESIGN_DOCUMENT.pdf`](docs/DESIGN_DOCUMENT.pdf) |
+| Engineering Decision Log | [`docs/DECISION_LOG.md`](docs/DECISION_LOG.md) |
+| Architecture | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) |
+| Verification Report | [`docs/VERIFICATION_REPORT.md`](docs/VERIFICATION_REPORT.md) |
+| Automated test suite | [`tests/`](tests/) |
+
+## 5-Minute Project Demonstration
+
+**Demo video link:** To be added after the final recording is uploaded.
+
