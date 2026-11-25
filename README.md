@@ -2,7 +2,7 @@
 
 # 📡 Campus Walkie-Talkie Channel & Time-Slot Allocation Engine
 
-### A browser-based campus communication scheduling and channel-allocation system
+### A simple web application for managing campus walkie-talkie channel requests and schedules
 
 **Team E037 · Project ECE-018**
 
@@ -12,454 +12,340 @@
 
 <br />
 
-[**Open the GitHub Repository**](https://github.com/suryaprakashs0629/E037-ECE-018)
+## 🎬 Watch the 5-Minute Project Demo
+
+[**▶ CLICK HERE TO WATCH THE PROJECT DEMONSTRATION**](https://drive.google.com/file/d/1qOfa2fZmvCGuA6lPnt4pChtag2y3cLoY/view?usp=sharing)
+
+See the dashboard, user accounts, channel requests, automatic allocation, schedules and reports.
+
+[**View GitHub Repository**](https://github.com/suryaprakashs0629/E037-ECE-018)
 
 </div>
 
 ---
 
-## Welcome
+## 👋 Welcome
 
-This README is a step-by-step guide for anyone opening this project for the first time. Follow the instructions in order to install the application on a Windows computer and use it through a local web browser.
+This project helps campus teams manage walkie-talkie channel requests and time slots through a web-based dashboard.
 
-> [!TIP]
-> **Quick start:** Download the project → install Python → run `setup_windows.bat` once → run `run_windows.bat` → open `http://127.0.0.1:5000` in your browser.
+You can run the application on a Windows computer using the simple steps below. **You do not need to know programming to start the application.**
 
----
+## 🚀 Run the Project on Your Computer
 
-<details>
-<summary><b>📑 Table of Contents</b></summary>
+Follow these steps in order.
 
-1. [Run the Project Locally](#1-run-the-project-locally)
-   - [1.1 Requirements](#11-requirements)
-   - [1.2 Download the project](#12-download-the-project)
-   - [1.3 Open the correct folder](#13-open-the-correct-folder)
-   - [1.4 First-time setup (run once)](#14-first-time-setup-run-once)
-   - [1.5 Start the application](#15-start-the-application)
-   - [1.6 Open the website in your browser](#16-open-the-website-in-your-browser)
-   - [1.7 Stop the application](#17-stop-the-application)
-2. [First-Time User Guide](#2-first-time-user-guide)
-3. [Project Overview](#3-project-overview)
-4. [Allocation Rules](#4-allocation-rules)
-5. [Run the Official Command-Line Evaluation](#5-run-the-official-command-line-evaluation)
-6. [Run the Automated Tests](#6-run-the-automated-tests)
-7. [Project Structure](#7-project-structure)
-8. [Database Information](#8-database-information)
-9. [Troubleshooting](#9-troubleshooting)
-10. [Security and Usage Notes](#10-security-and-usage-notes)
-11. [Team Information](#11-team-information)
+### Before you start
 
-</details>
+Make sure you have:
 
----
+- A Windows 10 or Windows 11 computer.
+- An internet connection for the first-time setup.
+- Python **3.10, 3.11 or 3.12** installed.
 
-# 1. Run the Project Locally
+> **No MySQL installation is required** for the normal setup. The application uses a local SQLite database by default.
 
-## 1.1 Requirements
+### Step 1 — Download the project
 
-Before you begin, make sure you have:
-
-| Requirement | Details |
-| :--- | :--- |
-| **Operating system** | Windows 10 or Windows 11 |
-| **Python** | Python 3.10–3.12; 64-bit recommended |
-| **Browser** | Chrome, Edge, Firefox, or another modern browser |
-| **Internet** | Required for the first-time package installation |
-| **Git** | Optional; only needed if you clone the repository |
-
-> [!NOTE]
-> **You do not need to install MySQL for the default local setup.** The application uses SQLite unless you configure another database.
-
-### Install Python
-
-1. Visit https://www.python.org/downloads/.
-2. Download and install Python 3.10, 3.11, or 3.12.
-3. If the installer offers **Add Python to PATH**, enable it.
-4. Complete the installation.
-5. Open PowerShell and check Python:
-
-```powershell
-py --version
-```
-
-If `py` is not recognised, restart PowerShell. If it still fails, repair or reinstall Python and enable the Python Launcher/PATH options.
-
----
-
-## 1.2 Download the project
-
-### Option A — Download ZIP (easiest)
-
-1. Open the [E037-ECE-018 GitHub repository](https://github.com/suryaprakashs0629/E037-ECE-018).
+1. Open the [GitHub project page](https://github.com/suryaprakashs0629/E037-ECE-018).
 2. Click the green **Code** button.
 3. Select **Download ZIP**.
-4. When the download finishes, right-click the ZIP file and choose **Extract All**.
-5. Open the extracted project folder.
+4. After downloading, right-click the ZIP file and choose **Extract All**.
 
-### Option B — Clone with Git
+### Step 2 — Install Python
 
-If Git is installed, open PowerShell in the location where you want the project and run:
+1. Visit [https://www.python.org/downloads/](https://www.python.org/downloads/).
+2. Download Python 3.10, 3.11 or 3.12.
+3. Start the installer.
+4. Select **Add Python to PATH** if the option is shown.
+5. Complete the installation.
 
-```powershell
-git clone https://github.com/suryaprakashs0629/E037-ECE-018.git
-cd E037-ECE-018
-```
+If Python is already installed in a supported version, you can continue to the next step.
 
----
+### Step 3 — Open the project folder
 
-## 1.3 Open the correct folder
+Open the extracted **E037-ECE-018** folder.
 
-Open the main project folder. You should be able to see these files:
+You should see files such as:
 
 ```text
 E037-ECE-018/
 ├── app/
 ├── docs/
-├── migrations/
-├── sample_data/
 ├── scripts/
 ├── tests/
-├── config.py
-├── requirements.txt
-├── run.py
 ├── setup_windows.bat
 └── run_windows.bat
 ```
 
-> [!IMPORTANT]
-> **Important:** Run the `.bat` files from the folder that contains them. If you cannot see `setup_windows.bat`, you have not opened the correct folder yet.
+Make sure you are inside the folder that contains the two `.bat` files.
 
----
+### Step 4 — Set up the project (first time only)
 
-## 1.4 First-time setup (run once)
+1. Find **`setup_windows.bat`**.
+2. Double-click it.
+3. A terminal window will open and install the required packages.
+4. Follow the instructions shown on the screen.
+5. When prompted, create the first **Administrator** account.
+6. Wait until setup finishes.
 
-1. Open the main project folder in File Explorer.
-2. Find **`setup_windows.bat`**.
-3. Double-click it.
-4. A terminal window will open. Allow the setup process to run.
-5. Follow any prompts shown in the terminal. If it asks you to create the first administrator account, enter the requested details.
-6. Wait until the script reports that setup has completed.
-7. If an error appears, stop here and use the [Troubleshooting](#9-troubleshooting) section.
+This step is normally required only once for each computer.
 
-The setup script prepares the local Python environment, installs the required packages, and initialises the local application database.
+### Step 5 — Start the website
 
-> [!WARNING]
-> You normally need to run this setup only once for each local installation. Keep your administrator credentials safe. Never upload your `.env` file, password, or local database to GitHub.
+Whenever you want to use the project:
 
----
-
-## 1.5 Start the application
-
-Whenever you want to use the website:
-
-1. Open the main project folder.
+1. Open the same **E037-ECE-018** folder.
 2. Double-click **`run_windows.bat`**.
-3. Keep the terminal window open.
-4. Wait until Flask displays a message showing that the server is running. The address should look like:
+3. Keep the terminal window open while using the website.
+
+### Step 6 — Open the website
+
+Open your browser and visit:
+
+**http://127.0.0.1:5000**
+
+Sign in using the Administrator username and password that you created during Step 4.
+
+<details>
+<summary><b>Having trouble starting the project?</b></summary>
+
+You can also run the files from PowerShell. Open PowerShell inside the main project folder and use:
+
+```powershell
+.\setup_windows.bat
+```
+
+For normal use after setup:
+
+```powershell
+.\run_windows.bat
+```
+
+To stop the website, go to the terminal window and press **Ctrl + C**.
+
+</details>
+
+> **Important:** Keep the terminal window open while using the website. The address `127.0.0.1` works on the computer running the application; it is not a public website link.
+
+---
+
+## 🧭 Understanding the Website
+
+The application has two main account types.
+
+| Account | What it can do |
+|---|---|
+| **Administrator** | Manage users and groups, review requests, run channel allocation, view schedules, check conflicts and access reports. |
+| **Group User** | Sign in to the assigned group account, submit channel requests, and view relevant request and schedule information. |
+
+### How to create a Group User account
+
+The first Administrator account is created during setup. To create additional users:
+
+1. Sign in as **Administrator**.
+2. Open **User Accounts**.
+3. Enter the user's name, username and temporary password.
+4. Select the **GROUP_USER** role.
+5. Assign the user's active group.
+6. Create the account.
+
+The new user can then sign in using the account details provided by the Administrator.
+
+### How the allocation process works
+
+1. A Group User submits a channel and time-slot request.
+2. The Administrator reviews the submitted requests.
+3. The allocation engine checks the project rules.
+4. Valid requests receive channel and time-slot allocations.
+5. The resulting schedule and any conflicts can be viewed in the dashboard.
+
+---
+
+## ✨ Main Features
+
+- 🔐 Separate Administrator and Group User accounts.
+- 👥 User and group management.
+- 📝 Channel and time-slot request submission.
+- ⚙️ Automatic channel allocation.
+- 📅 Allocation timetable and schedule.
+- ⚠️ Conflict detection and logging.
+- 📊 Dashboard, utilisation information and reports.
+- 📁 CSV output files.
+- 🧪 Automated tests for the allocation logic.
+- 🖥️ Official Team E037 command-file evaluation.
+
+---
+
+## 📻 Important Allocation Rules
+
+The application follows these main scheduling rules:
+
+| Rule | Explanation |
+|---|---|
+| **16 channel numbers** | Channels are numbered 1 to 16. |
+| **Channel 16** | Always reserved; it is not allocated. |
+| **Allocatable channels** | Channels 1 to 15. |
+| **Starting frequency** | 446.00625 MHz. |
+| **Channel spacing** | 12.5 kHz. |
+| **Time-slot duration** | 30 minutes. |
+| **Slots per day** | 48. |
+| **Maximum continuous duration** | 8 slots (4 hours) per request. |
+| **Maximum channels** | 3 channels per group in a time slot. |
+| **Priority order** | SECURITY → MEDICAL → EVENTS → MAINTENANCE. |
+
+**Channel conflict rule:** Different groups cannot use the same channel or adjacent channel numbers during the same time slot. The allocation engine checks these conditions before assigning channels.
+
+**All-or-nothing rule:** A request is allocated as a whole or is not allocated. Partial allocation is not allowed.
+
+---
+
+## 🧰 Technical Information
+
+You do not need to understand these technologies to run the application. This section is for readers who want to know how the project was built.
+
+| Part | Technology |
+|---|---|
+| Programming language | Python |
+| Backend | Flask |
+| Frontend | HTML, CSS and JavaScript |
+| Database | SQLite by default; MySQL is also supported |
+| Database ORM | Flask-SQLAlchemy |
+| Testing | Pytest |
+
+### Project folder structure
 
 ```text
-http://127.0.0.1:5000
+E037-ECE-018/
+│
+├── app/                # Website pages, routes and application logic
+├── docs/               # Design and project documents
+├── migrations/         # Database migration files
+├── sample_data/        # Sample channels, groups and requests
+├── scripts/            # Setup and evaluation scripts
+├── tests/              # Automated tests
+│
+├── config.py           # Application configuration
+├── requirements.txt    # Required Python packages
+├── run.py              # Application entry point
+├── setup_windows.bat   # First-time setup
+├── run_windows.bat     # Start the website
+└── VERSION.txt         # Project version
 ```
 
 ---
 
-## 1.6 Open the website in your browser
+## 🧪 Run the Automated Tests
 
-1. Open Chrome, Edge, Firefox, or another browser.
-2. Enter this address:
-   **`http://127.0.0.1:5000`**
-3. The project login page should appear.
-4. Sign in using the administrator credentials created during setup.
+This step is mainly for developers or evaluators.
 
-You are now using the application locally.
-
-> [!IMPORTANT]
-> **Keep the terminal open while using the website.** Closing it stops the local server. The address `127.0.0.1` refers to your own computer; it is not a public website URL.
-
----
-
-## 1.7 Stop the application
-
-1. Return to the terminal window running Flask.
-2. Press <kbd>Ctrl</kbd> + <kbd>C</kbd>.
-3. Wait for the server to stop.
-4. You can then close the terminal.
-
----
-
-# 2. First-Time User Guide
-
-The pages available to you depend on your account role.
-
-### 🛡️ Administrator
-
-An administrator can manage groups and users, review channel requests, approve or reject requests, run channel allocations, view schedules, inspect conflicts, and access reports.
-
-### 👥 Group user
-
-A group user can sign in with the account assigned to them, submit channel requests, check request status, and view relevant group schedules and notifications.
-
-### Suggested project demonstration
-
-For a short walkthrough:
-
-1. Sign in as administrator.
-2. Open the dashboard and review its summary.
-3. Open the group and user management pages.
-4. Review the available channel requests.
-5. Approve an eligible request if required by the workflow.
-6. Run the allocation process.
-7. Open the allocation schedule.
-8. Inspect the conflict log and reports.
-
-Use the supplied sample data and follow the application's validation messages. A request should not be assumed to be allocatable if it violates a scheduling rule.
-
----
-
-# 3. Project Overview
-
-The Campus Walkie-Talkie Channel and Time-Slot Allocation Engine is a software application that simulates communication-channel scheduling among campus departments or user groups.
-
-It manages allocation requests, applies scheduling constraints, detects conflicts, and presents allocation results through a browser-based interface.
-
-> [!NOTE]
-> **This project is a software simulation. It does not transmit radio signals, communicate with physical walkie-talkies, or configure real radio hardware.**
-
-## Main features
-
-- Administrator and group-user access.
-- Group and user management.
-- Channel allocation request submission and review.
-- Automatic channel and time-slot allocation.
-- Daily allocation schedule.
-- Conflict logging.
-- Utilisation and reporting views.
-- CSV output generation.
-- Official Team E037 command-file runner.
-- Automated tests for core allocation behaviour.
-
-## Technology stack
-
-| Layer | Technology |
-| :--- | :--- |
-| **Programming language** | Python |
-| **Backend** | Flask |
-| **Frontend** | HTML, CSS, JavaScript |
-| **ORM** | Flask-SQLAlchemy |
-| **Default local database** | SQLite |
-| **Optional database** | MySQL |
-| **Automated tests** | Pytest |
-
----
-
-# 4. Allocation Rules
-
-| Parameter | Rule |
-| :--- | :--- |
-| **Total channel numbers** | `16` |
-| **Allocatable channels** | `1–15` |
-| **Reserved channel** | `16` |
-| **Starting frequency** | `446.00625 MHz` |
-| **Channel spacing** | `12.5 kHz` |
-| **Slots per day** | `48` |
-| **Duration per slot** | `30 minutes` |
-| **Maximum consecutive slots per request** | `8` |
-| **Maximum channels per group per slot** | `3` |
-| **Priority order** | `SECURITY → MEDICAL → EVENTS → MAINTENANCE` |
-
-**Other important rules:**
-
-- Channel 16 is reserved and must not be allocated.
-- Different groups must not receive the same or adjacent channel numbers in the same time slot.
-- Requests are processed according to priority and the applicable ordering rules.
-- Allocations must satisfy the all-or-nothing requirement.
-- Emergency handling is subject to authorisation and justification rules.
-
-See the files in `docs/` for the project's detailed design and implementation decisions.
-
----
-
-# 5. Run the Official Command-Line Evaluation
-
-The repository includes a command-line runner and sample input files for Team E037.
-
-1. Complete the initial setup in Section 1.
-2. Open the main project folder.
-3. Double-click **`run_official_windows.bat`**.
-4. Wait for the command-line run to finish.
-5. Inspect the generated files in:
-
-```text
-exports/official_run/
-```
-
-The expected output filenames are:
-
-- `allocation_table.csv`
-- `utilisation.csv`
-- `conflict_log.csv`
-
-The official sample inputs are stored in:
-
-```text
-sample_data/team_e037/
-```
-
-> [!CAUTION]
-> **Do not overwrite or edit the original supplied sample files during an evaluation.** Make a separate copy if you want to experiment with modified inputs.
-
----
-
-# 6. Run the Automated Tests
-
-After setup, open PowerShell in the main project folder and run:
+1. Complete the setup from the earlier instructions.
+2. Open PowerShell inside the main project folder.
+3. Run:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-Pytest will execute the tests in the `tests/` directory and display a summary.
+Pytest will run the automated tests and display the results.
 
-If pytest is unavailable, rerun `setup_windows.bat` and check that setup completes successfully.
+## 📄 Run the Official Team E037 Evaluation
 
----
+The repository includes sample input files and a separate evaluation runner.
 
-# 7. Project Structure
+1. Open the main project folder.
+2. Double-click **`run_official_windows.bat`**.
+3. Wait for the evaluation to finish.
+4. Open the generated files in:
 
 ```text
-E037-ECE-018/
-│
-├── app/                         # Flask app, routes, services, templates and assets
-├── docs/                        # Design, decisions, architecture and project specs
-├── migrations/                  # Database migration guidance and revisions
-├── sample_data/team_e037/       # Official channels, groups and command input files
-├── scripts/                     # Database setup, admin creation and evaluator runner
-├── tests/                       # Automated allocation and command-runner tests
-│
-├── .env.example                 # Safe example environment configuration
-├── .gitignore                   # Excludes secrets, local databases and generated files
-├── config.py                    # Flask and database configuration
-├── requirements.txt             # Pinned application/test dependencies
-├── requirements-dev.txt         # Development dependency entry point
-├── run.py                       # Flask application entry point
-├── setup_windows.bat            # First-time Windows setup
-├── run_windows.bat              # Starts the local website
-├── run_official_windows.bat     # Runs the official sample-pack evaluator
-└── VERSION.txt                  # Project release information
+exports/official_run/
 ```
 
-Runtime folders such as `instance/`, `uploads/`, `exports/` and `logs/` are created or used locally and are excluded from Git. Do not commit `.env`, virtual environments, local databases, uploaded files or generated evaluation output.
+The output files are:
+
+- `allocation_table.csv`
+- `utilisation.csv`
+- `conflict_log.csv`
+
+The sample input files are available in `sample_data/team_e037/`.
 
 ---
 
-# 8. Database Information
+## 🛠️ Troubleshooting
 
-The default local setup uses SQLite. This avoids the need to install and run a separate database server for a basic demonstration.
+<details>
+<summary><b>Python is not recognised or cannot be found</b></summary>
 
-The project also includes MySQL support for environments where a MySQL database is configured.
-
-For a normal first-time evaluation, use the default setup. Do not change the database configuration unless instructed by the project team.
-
-> [!WARNING]
-> **Do not delete the local database while the application is in use.** It may contain administrator accounts, users, requests, and allocation records.
-
----
-
-# 9. Troubleshooting
-
-<details open>
-<summary><b>Python or <code>py</code> is not recognised</b></summary>
-<br />
-
-- Install Python 3.10–3.12 from [python.org](https://www.python.org/downloads/).
-- Enable the Python Launcher and PATH options if offered.
-- Close and reopen PowerShell.
-- Check again using `py --version`.
+Install Python 3.10–3.12 from [python.org](https://www.python.org/downloads/). During installation, enable **Add Python to PATH** if available. Close and reopen your terminal after installing.
 
 </details>
 
 <details>
-<summary><b>The setup window closes or reports an error</b></summary>
-<br />
+<summary><b>The setup window closes or shows an error</b></summary>
 
-- Run `setup_windows.bat` from the main project folder.
-- Check that Python is installed.
-- Check your internet connection.
-- Read the error shown in the terminal.
-
-If the problem continues, copy the complete error message before asking for help.
+Make sure you are running `setup_windows.bat` from the main project folder. Check your internet connection and read the error shown in the terminal. Do not close the window before noting the error.
 
 </details>
 
 <details>
-<summary><b>The browser says the site cannot be reached</b></summary>
-<br />
+<summary><b>The website does not open</b></summary>
 
-- Confirm that `run_windows.bat` is running.
-- Check that the terminal displays the local Flask address.
-- Keep the terminal open.
-- Enter `http://127.0.0.1:5000` exactly.
-- If port 5000 is already in use, stop the other application using it or contact the project team.
+- Check that `run_windows.bat` is running.
+- Keep its terminal window open.
+- Make sure you entered **http://127.0.0.1:5000** correctly.
+- If another application is using port 5000, the server may fail to start.
 
 </details>
 
 <details>
-<summary><b>Administrator login does not work</b></summary>
-<br />
+<summary><b>My login details are not working</b></summary>
 
-- Use the credentials created during initial setup.
-- Check that Caps Lock is off.
-- Do not delete the database to try to fix a login problem.
-- Contact the project team if the account or database needs recovery.
+Use the Administrator credentials created during the first-time setup. For a Group User account, ask the Administrator to confirm that the account was created and assigned to the correct group.
 
 </details>
 
 <details>
-<summary><b>Python package or import errors appear</b></summary>
-<br />
+<summary><b>Packages or Python import errors appear</b></summary>
 
-Run the setup script again and allow it to finish. If the issue continues, share the complete terminal error with the project team.
+Run `setup_windows.bat` again and allow it to finish. If the issue continues, save the complete terminal error so it can be checked.
 
 </details>
 
 ---
 
-# 10. Security and Usage Notes
+## 🔒 Important Notes
 
-- Never publish passwords, secret keys, `.env` files, or private database files.
-- Do not share administrator credentials.
-- The Flask development server is intended for local development and demonstration, not production deployment.
-- The local browser address is intended for use on the computer running the application.
-- Use authorised accounts and the supplied sample data.
-- Back up the local database before changing or deleting it.
+- This project is a **software simulation**. It does not transmit radio signals or connect to physical walkie-talkie hardware.
+- The application is configured for local use and demonstration.
+- Do not share Administrator passwords.
+- Do not upload your `.env` file, passwords, local database or private user information to GitHub.
+- Do not delete the local database while using the application; it may contain accounts, requests and allocation records.
 
 ---
 
-# 11. Project Documents and Demo
+## 📚 Project Documents
 
-The `docs/` directory contains the engineering and submission documents.
+The following documents are included in the repository:
 
-| Required item | Repository location | Status |
-| :--- | :--- | :--- |
-| README and run instructions | `README.md` | Included |
-| System Design Document (PDF) | [`docs/DESIGN_DOCUMENT.pdf`](docs/DESIGN_DOCUMENT.pdf) | Included |
-| Full automated test suite | [`tests/`](tests/) | Included |
-| Engineering Decision Log | [`docs/DECISION_LOG.md`](docs/DECISION_LOG.md) | Included |
-| 5-minute demonstration video | [Watch the 5-minute project demonstration](https://drive.google.com/file/d/1qOfa2fZmvCGuA6lPnt4pChtag2y3cLoY/view?usp=sharing) | Available |
+| Document | Open |
+|---|---|
+| System Design Document | [DESIGN_DOCUMENT.pdf](docs/DESIGN_DOCUMENT.pdf) |
+| Engineering Decision Log | [DECISION_LOG.md](docs/DECISION_LOG.md) |
+| System Architecture | [ARCHITECTURE.md](docs/ARCHITECTURE.md) |
+| Verification Report | [VERIFICATION_REPORT.md](docs/VERIFICATION_REPORT.md) |
+| Automated test suite | [tests/](tests/) |
 
-### Project demonstration video
+---
 
-▶ **[Watch the 5-minute project demonstration](https://drive.google.com/file/d/1qOfa2fZmvCGuA6lPnt4pChtag2y3cLoY/view?usp=sharing)**
-
-# 12. Team Information
+## 👨‍💻 Team Information
 
 | Field | Details |
-| :--- | :--- |
+|---|---|
+| **Project title** | Campus Walkie-Talkie Channel and Time-Slot Allocation Engine |
 | **Project code** | ECE-018 |
 | **Team ID** | E037 |
-| **Project title** | Campus Walkie-Talkie Channel and Time-Slot Allocation Engine |
-| **Team members** | • Surya Prakash S<br>• Sudarshan V |
-| **GitHub repository** | https://github.com/suryaprakashs0629/E037-ECE-018 |
+| **Team members** | Surya Prakash.S, Sudarshan V. |
+| **GitHub repository** | [E037-ECE-018](https://github.com/suryaprakashs0629/E037-ECE-018) |
 
 ---
 
@@ -469,23 +355,6 @@ The `docs/` directory contains the engineering and submission documents.
 
 *Campus Walkie-Talkie Channel and Time-Slot Allocation Engine*
 
+[⬆ Back to top](#-campus-walkie-talkie-channel--time-slot-allocation-engine)
+
 </div>
-
----
-
-# Project Submission Documents
-
-The following documents are included in the `docs/` directory:
-
-| Deliverable | File |
-|---|---|
-| System Design Document | [`docs/DESIGN_DOCUMENT.pdf`](docs/DESIGN_DOCUMENT.pdf) |
-| Engineering Decision Log | [`docs/DECISION_LOG.md`](docs/DECISION_LOG.md) |
-| Architecture | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) |
-| Verification Report | [`docs/VERIFICATION_REPORT.md`](docs/VERIFICATION_REPORT.md) |
-| Automated test suite | [`tests/`](tests/) |
-
-## 5-Minute Project Demonstration
-
-**Demo video link:** [Watch the 5-minute project demonstration](https://drive.google.com/file/d/1qOfa2fZmvCGuA6lPnt4pChtag2y3cLoY/view?usp=sharing)
-
