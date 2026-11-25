@@ -445,11 +445,11 @@ The `docs/` directory contains the engineering and submission documents.
 | System Design Document (PDF) | [`docs/DESIGN_DOCUMENT.pdf`](docs/DESIGN_DOCUMENT.pdf) | Included |
 | Full automated test suite | [`tests/`](tests/) | Included |
 | Engineering Decision Log | [`docs/DECISION_LOG.md`](docs/DECISION_LOG.md) | Included |
-| 5-minute demonstration video | Link below | To be added when the recording is ready |
+| 5-minute demonstration video | [Watch the 5-minute project demonstration](https://drive.google.com/file/d/1qOfa2fZmvCGuA6lPnt4pChtag2y3cLoY/view?usp=sharing) | Available |
 
 ### Project demonstration video
 
-**Coming soon.** The 5-minute demonstration link will be added here before final submission.
+▶ **[Watch the 5-minute project demonstration](https://drive.google.com/file/d/1qOfa2fZmvCGuA6lPnt4pChtag2y3cLoY/view?usp=sharing)**
 
 # 12. Team Information
 
@@ -487,5 +487,5 @@ The following documents are included in the `docs/` directory:
 
 ## 5-Minute Project Demonstration
 
-**Demo video link:** To be added after the final recording is uploaded.
+**Demo video link:** [Watch the 5-minute project demonstration](https://drive.google.com/file/d/1qOfa2fZmvCGuA6lPnt4pChtag2y3cLoY/view?usp=sharing)
 
